@@ -1,0 +1,77 @@
+<nav class="navbar navbar-light bg-success " style="height: 60px;" >
+  <div class="container-fluid">
+    <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color:white;">Contact Manager</h2>
+    <div class="d-flex">
+      <button  type="button" (click)="showbox()"   data-bs-toggle="modal"  data-bs-target="#exampleModal" class="btn btn-primary py-2" >Add Contact</button>
+    </div>
+   
+  </div>
+  
+</nav>
+
+
+<div class="container">
+  <h2 class="header" >Contact List</h2>
+  <input type="text" name="search" placeholder="search" [(ngModel)]="searchText">
+<div class="row " class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table class="table table-hover " >
+    <tbody>
+      <tr *ngFor=" let x of user | filter:searchText">
+        <td>
+          <img src="assets/img.png" class="img" alt="user" width="50px" height="50px">
+        </td>
+        <td>
+          <span class="name">{{x.name}}</span>
+          <h6  class="email">{{x.email}}</h6>
+        </td>
+        <td>
+          <div class="mx-4">
+            <button class="btn " type="button"      (click)="updatedata(x.id)" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-edit" style="font-size:24px"></i></button>
+            <button class="btn mx-1" (click)= "deleteuser(x.id)"><i class="far fa-trash-alt text-danger fa-2x" ></i></button>
+           
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add Contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <form #userForm="ngForm" (ngSubmit)="submitform()" >
+          <div class="form-group mt-3">
+            <label>Username</label>
+            <input type="text" required #name=ngModel [class.is-invalid]="name.invalid && name.touched"
+              class="form-control" name="name" [(ngModel)]="data.name">
+            <p class="text-danger" *ngIf=" name.errors?.['required']">Name is required</p>
+      
+          </div>
+          <div>
+          <label>Email</label>
+            <input type="text" required #email=ngModel [class.is-invalid]="email.invalid && email.touched"
+              class="form-control" name="email" [(ngModel)]="data.email" >
+            <p class="text-danger" *ngIf=" email.errors?.['required']">Email is required</p>
+      
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit"  *ngIf="showsubmit" class="btn btn-primary">Submit</button>
+            <button class="btn btn-warning"  *ngIf="showupdate" (click)="updateform()" >update</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

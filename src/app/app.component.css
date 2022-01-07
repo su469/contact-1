@@ -1,0 +1,24 @@
+ .table{
+   margin-left: 20px;
+   position:relative;
+    margin-top: 30px;
+    color:black;
+    font-size: 20px;
+    font-family:cursive
+}
+.button{
+    margin-top: 2px;
+} 
+.data{
+    color:mediumturquoise
+}
+.header{
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+    margin-top:20px ;
+    color: cornflowerblue;
+    font-weight: 20px;
+}
+.email{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,29 @@
+{
+  "user": [
+    {
+      "id": 5,
+      "name": "suma santapuri reddy",
+      "email": "testmail93923@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "rani dusa",
+      "email": "rani@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "rani dusa",
+      "email": "rani@gmail.com"
+    },
+    {
+      "id": 10,
+      "name": "sumad",
+      "email": "suma@gmail.com"
+    },
+    {
+      "name": "eer",
+      "email": "wr",
+      "id": 11
+    }
+  ]
+}
